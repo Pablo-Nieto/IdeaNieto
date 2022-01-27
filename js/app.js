@@ -2,7 +2,7 @@
 
 /*desafío complementario*/
 
-/*solicita nombre y apellido al usuario mediante un prompt, con el uso de condicionales para devolver distintos mensajes, dependiendo si llena o no los espacios*/
+//solicita nombre y apellido al usuario mediante un prompt, con el uso de condicionales para devolver distintos mensajes, dependiendo si llena o no los espacios
 
 let nombreIngresado = prompt("Ingresar nombre");
 let apellidoIngresado = prompt("Ingresar apellido");
@@ -15,7 +15,7 @@ else {
     alert("No ingresó ningún dato");
 }
 
-/*uso de while para preguntar al usuario si desea comprar y el uso de un prompt para que finalice el ciclo*/
+//uso de while para preguntar al usuario si desea comprar y el uso de un prompt para que finalice el ciclo
 
 let entrada =prompt("¿Le gustaría comprar?").toLowerCase();
 
@@ -31,7 +31,7 @@ while(entrada != "aceptar"){
    entrada = prompt("Para continuar escriba 'aceptar'.");
 }
 
-/*uso de un array para contener dentro la lista de objetos (mis productos)*/
+//uso de un array para contener dentro la lista de objetos (mis productos)
 
 
 let stockProductos = [
@@ -69,3 +69,12 @@ function actualizarCarrito() {//mediante esta función se calcula el valor final
     let iva = suma * 0.21
     console.log('la suma total de su Carrito es $' + ((suma + iva) - descuento).toFixed(2))
 }
+
+const existe = stockProductos.some(producto => producto.nombre == "Yerba Playadito")
+console.log(existe); //el método some permite saber si existe o no determinado objeto dentro de mi array
+
+const baratos = stockProductos.filter(producto => producto.precio < 400)
+console.log(baratos);
+//el método filter permite mostrar los productos dentro del array, cuyo precio  sea menor a 400
+
+//estoy en una rama de mi git 
