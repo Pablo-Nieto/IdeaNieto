@@ -77,4 +77,3 @@ const baratos = stockProductos.filter(producto => producto.precio < 400)
 console.log(baratos);
 //el método filter permite mostrar los productos dentro del array, cuyo precio  sea menor a 400
 
-//estoy en una rama de mi git 
