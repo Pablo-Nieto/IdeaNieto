@@ -81,4 +81,4 @@ console.log(contraseña.value)
 
 let titulo = document.getElementsByClassName("titulo")
 titulo.innerText = "Tienda orgánica 🍃"
-console.log(titulo.innerText) // con el uso de Dom Muestra el título en el sitio web
+console.log(titulo.innerText) // con el uso de Dom muestra el título en el sitio web
