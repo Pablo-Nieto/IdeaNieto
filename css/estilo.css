@@ -214,7 +214,7 @@ footer {
 		"main main main main"
 		"footer footer footer footer";
 		grid-template-columns: repeat(4, 25%); 
-		grid-template-rows: 257px 2950px 161px;
+		grid-template-rows: 257px 3080px 161px;
 	}
 
 	header {

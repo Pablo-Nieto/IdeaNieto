@@ -52,10 +52,9 @@ let carritoDeCompras = []
 
 function mostrarProductos() {//muestra los productos en la consola
     stockProductos.forEach((producto)=>{
-        console.log(producto);
+        console.log(producto)
     })
 }
-
 mostrarProductos()
 
 agregarAlCarrito()
@@ -91,7 +90,7 @@ let contraseña = document.getElementById("contraseña");
 
 console.log(usuario.value)
 console.log(contraseña.value)
-//Me muestra por consola los datos ingresados por el usuario (es necesario usar el console.log dentro del inspeccionar luego de ingresar los datos en los inputs)
+//Muestra por consola los datos ingresados por el usuario
 
 let titulo = document.getElementsByClassName("titulo")
 titulo.innerText = "Tienda orgánica 🍃"
