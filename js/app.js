@@ -88,3 +88,13 @@ console.log(baratos);
 //el método filter permite mostrar los productos dentro del array, cuyo precio  sea menor a 400 
 
 
+let usuario = document.getElementById("usuario");
+let contraseña = document.getElementById("contraseña");
+
+console.log(usuario.value)
+console.log(contraseña.value)
+//Me muestra por consola los datos ingresados por el usuario (es necesario usar el console.log dentro del inspeccionar luego de ingresar los datos en los inputs)
+
+let titulo = document.getElementsByClassName("titulo")
+titulo.innerText = "Tienda orgánica 🍃"
+console.log(titulo.innerText)
