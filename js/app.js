@@ -30,7 +30,7 @@ while(entrada != "aceptar"){
            break;
    }
    entrada = prompt("Para continuar escriba 'aceptar'.");
-}
+} 
 
 //uso de un array para contener dentro la lista de objetos (mis productos)
 
@@ -71,7 +71,6 @@ function agregarAlCarrito() {//esta función permite agregar al carrito mi produ
     
 }
 
-
 function actualizarCarrito() {//mediante esta función se calcula el valor final del producto con el iva y el descuento incluidos
     console.log('cantidad de productos agregados ' + carritoDeCompras.length)
     let suma = carritoDeCompras.reduce((acc, el) => acc + el.precio, 0)
@@ -85,8 +84,7 @@ console.log(existe); //el método some permite saber si existe o no determinado 
 
 const baratos = stockProductos.filter(producto => producto.precio < 400)
 console.log(baratos);
-//el método filter permite mostrar los productos dentro del array, cuyo precio  sea menor a 400 
-
+//el método filter permite mostrar los productos dentro del array, cuyo precio  sea menor a 400
 
 let usuario = document.getElementById("usuario");
 let contraseña = document.getElementById("contraseña");
