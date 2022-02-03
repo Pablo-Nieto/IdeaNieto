@@ -4,7 +4,7 @@
 /*desafío complementario*/
 
 //solicita nombre y apellido al usuario mediante un prompt, con el uso de condicionales para devolver distintos mensajes, dependiendo si llena o no los espacios
-
+/*
 let nombreIngresado = prompt("Ingresar nombre");
 let apellidoIngresado = prompt("Ingresar apellido");
 
@@ -14,7 +14,7 @@ if ((nombreIngresado !="") && (apellidoIngresado !="")) {
 
 else {
     alert("No ingresó ningún dato");
-}
+}*/
 
 //uso de while para preguntar al usuario si desea comprar y el uso de un prompt para que finalice el ciclo
 

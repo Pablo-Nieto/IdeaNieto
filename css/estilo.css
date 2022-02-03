@@ -168,6 +168,22 @@ header {
 	outline-offset: 2px;
 }
 
+.formulario {
+	margin-left: 70px;
+	margin-top: 50px;
+	font-size: 21px;
+}
+
+.formulario__text{
+	width: 450px;
+	margin-bottom:30px;
+}
+
+.formulario__contra {
+	width: 330px;
+	margin-bottom:30px;
+}
+
 /*estilo del footer*/
 
 footer {
@@ -198,7 +214,7 @@ footer {
 		"main main main main"
 		"footer footer footer footer";
 		grid-template-columns: repeat(4, 25%); 
-		grid-template-rows: 257px 2743px 161px;
+		grid-template-rows: 257px 2950px 161px;
 	}
 
 	header {
