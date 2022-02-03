@@ -3,19 +3,6 @@
 
 /*desafío complementario*/
 
-//solicita nombre y apellido al usuario mediante un prompt, con el uso de condicionales para devolver distintos mensajes, dependiendo si llena o no los espacios
-/*
-let nombreIngresado = prompt("Ingresar nombre");
-let apellidoIngresado = prompt("Ingresar apellido");
-
-if ((nombreIngresado !="") && (apellidoIngresado !="")) {
-    alert("Bienvenido/a: "+ nombreIngresado + apellidoIngresado);
-}
-
-else {
-    alert("No ingresó ningún dato");
-}*/
-
 //uso de while para preguntar al usuario si desea comprar y el uso de un prompt para que finalice el ciclo
 
 let entrada =prompt("¿Le gustaría comprar?").toLowerCase();
@@ -94,4 +81,4 @@ console.log(contraseña.value)
 
 let titulo = document.getElementsByClassName("titulo")
 titulo.innerText = "Tienda orgánica 🍃"
-console.log(titulo.innerText)
+console.log(titulo.innerText) // con el uso de Dom Muestra el título en el sitio web
