@@ -1,48 +1,61 @@
 
-
-
-/*desafío complementario*/
-
-//uso de while para preguntar al usuario si desea comprar y el uso de un prompt para que finalice el ciclo
-
-let entrada =prompt("¿Le gustaría comprar?").toLowerCase();
-
-while(entrada != "aceptar"){
-   switch (entrada) {
-       case "si":
-            alert("Desea comprar");
-            break;
-       default:
-           alert("No desea comprar");
-           break;
-   }
-   entrada = prompt("Para continuar escriba 'aceptar'.");
-} 
+/*desafío*/
 
 //uso de un array para contener dentro la lista de objetos (mis productos)
 
 
 let stockProductos = [
-    {id: 1, nombre: "Yerba Roapipo", tipo: "yerba agroecológica", precio: 388.43, descuento: 70},
-    {id: 2, nombre: "Yerba Kalena", tipo: "yerba agroecológica", precio: 388.43, descuento: 70},
-    {id: 3, nombre: "Yerba Coffee", tipo: "yerba blend", precio: 669.42, descuento: 100},
-    {id: 4, nombre: "Yerba Flower Power", tipo: "yerba blend", precio: 669.42, descuento: 100},
-    {id: 5, nombre: "Yerba Ginger Mate", tipo: "yerba blend", precio: 669.42, descuento: 100},
-    {id: 6, nombre: "Yerba Tres Mentas", tipo: "yerba blend", precio: 669.42, descuento: 100},
-    {id: 7, nombre: "Té Frutos Rojos", tipo: "té en hebras", precio: 454.545, descuento:50},
-    {id: 8, nombre: "Té Mango", tipo: "té en hebras", precio: 454.545, descuento: 50},
-    {id: 9, nombre: "Té Maracuyá", tipo: "té en hebras", precio: 454.545, descuento: 50},
-    {id: 10, nombre: "Té Chocolate y Menta", tipo: "té en hebras", precio: 454.545, descuento: 50},
+    {id: 1, nombre: "Yerba Roapipo", tipo: "yerba agroecológica", precio: 388.43, descuento: 70, img: 'assets/img/roapipo.jpg'},
+    {id: 2, nombre: "Yerba Kalena", tipo: "yerba agroecológica", precio: 388.43, descuento: 70, img: 'assets/img/kalena.jpg'},
+    {id: 3, nombre: "Yerba Coffee", tipo: "yerba blend", precio: 669.42, descuento: 100, img: 'assets/img/matecoffee.png'},
+    {id: 4, nombre: "Yerba Flower Power", tipo: "yerba blend", precio: 669.42, descuento: 100, img: 'assets/img/mateflower.png'},
+    {id: 5, nombre: "Yerba Ginger Mate", tipo: "yerba blend", precio: 669.42, descuento: 100, img: 'assets/img/mateginger.png'},
+    {id: 6, nombre: "Yerba Tres Mentas", tipo: "yerba blend", precio: 669.42, descuento: 100, img: 'assets/img/matementas.png'},
+    {id: 7, nombre: "Té Frutos Rojos", tipo: "té en hebras", precio: 454.54, descuento:50, img: 'assets/img/tefrutosrojos.jpg'},
+    {id: 8, nombre: "Té Mango", tipo: "té en hebras", precio: 454.54, descuento: 50, img: 'assets/img/temango.jpg'},
+    {id: 9, nombre: "Té Maracuyá", tipo: "té en hebras", precio: 454.54, descuento: 50, img: 'assets/img/temaracuya.jpg'},
+    {id: 10, nombre: "Té Chocolate y Menta", tipo: "té en hebras", precio: 454.54, descuento: 50, img: 'assets/img/tecym.jpg'},
 ]
 
-let carritoDeCompras = []
+const contenedorProductos = document.getElementById('contenedor__productos');
+const selecTipo = document.getElementById('selecTipo');
 
-function mostrarProductos() {//muestra los productos en la consola
-    stockProductos.forEach((producto)=>{
-        console.log(producto)
-    })
+selecTipo.addEventListener('change', ()=>{
+  console.log(selecTipo.value)
+  if(selecTipo.value == "todos"){
+    mostrarProductos(stockProductos)
+  }
+  else{
+    mostrarProductos(stockProductos.filter(el=>el.tipo == selecTipo.value))
+  }
+})
+
+
+mostrarProductos(stockProductos)
+
+function mostrarProductos(array) {
+  contenedorProductos.innerHTML = "";
+  array.forEach(producto =>{
+    let div = document.createElement('div')
+    div.className = 'producto'
+    div.innerHTML = `
+                    <div class="card">
+                            <img src=${producto.img} class="imagen">   
+                            <span class="card-title titulo">${producto.nombre}</span> 
+                            </div>
+                            <div class="card-content">
+                                <p>Tipo: ${producto.tipo}</p>
+                                <p>descuento: $${producto.descuento}</p>
+                                <p> precio: $${producto.precio}</p> 
+                                <button class="boton">Agregar al carrito</button>
+                            </div>
+                    </div>
+    `
+    contenedorProductos.appendChild(div)
+  })
 }
-mostrarProductos()
+
+let carritoDeCompras = []
 
 agregarAlCarrito()
 
@@ -75,10 +88,28 @@ console.log(baratos);
 let usuario = document.getElementById("usuario");
 let contraseña = document.getElementById("contraseña");
 
-console.log(usuario.value)
-console.log(contraseña.value)
+usuario.onchange = () => {console.log(usuario.value)};
+contraseña.onchange = () => {console.log(contraseña.value)};
 //Muestra por consola los datos ingresados por el usuario
 
-let titulo = document.getElementsByClassName("titulo")
-titulo.innerText = "Tienda orgánica 🍃"
-console.log(titulo.innerText) // con el uso de Dom muestra el título en el sitio web
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

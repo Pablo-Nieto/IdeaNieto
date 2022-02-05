@@ -30,123 +30,16 @@
 			<div>
 				<img src="assets/img/fotoprincipal.jpg" alt="mate" class="mate">
 			</div>
-			<!--yerbas agroecologicas-->
-			<div class="secciones1">
-				<h2>Yerbas agroecológicas</h2>
-			</div>
-			<div class="contenedor1">
-				<div class="producto1">
-					<!--img-->
-					<img src="assets/img/roapipo.jpg" alt="yerba" class="yerbaAgro1">
-					<!--nombre de producto-->
-					<p class="nombre">Yerba Roapipo</p>
-					<!--precio-->
-					<p>$470</p>
-					<!--boton "agregar"-->
-					<button type="button" class="boton">Agregar al carrito</button>
-				</div>
-				<div class="producto1">
-					<!--img-->
-					<img src="assets/img/kalena.jpg" alt="yerba" class="yerbaAgro">
-					<!--nombre de producto-->
-					<p class="nombre">Yerba Kalena</p>
-					<!--precio-->
-					<p>$470</p>
-					<!--boton "agregar"-->
-					<button type="button" class="boton">Agregar al carrito</button>
-				</div>
-			</div>
-			<!--yerbas blend-->
-			<div class="secciones">
-				<h2>Yerbas blend</h2>
-			</div>
-			<div class="contenedor">
-				<div class="producto">
-					<!--img-->
-					<img src="assets/img/matecoffee.png" alt="yerba" class="yerbaBlend">
-					<!--nombre de producto-->
-					<p class="nombre">Yerba Coffee</p>
-					<!--precio-->
-					<p>$810</p>
-					<!--boton "agregar"-->
-					<button type="button" class="boton">Agregar al carrito</button>
-				</div>
-				<div class="producto">
-					<!--img-->
-					<img src="assets/img/mateflower.png" alt="yerba" class="yerbaBlend">
-					<!--nombre de producto-->
-					<p class="nombre">Yerba Flower Power</p>
-					<!--precio-->
-					<p>$810</p>
-					<!--boton "agregar"-->
-					<button type="button" class="boton">Agregar al carrito</button>
-				</div>
-				<div class="producto">
-					<!--img-->
-					<img src="assets/img/mateginger.png" alt="yerba" class="yerbaBlend">
-					<!--nombre de producto-->
-					<p class="nombre">Yerba Ginger Mate</p>
-					<!--precio-->
-					<p>$810</p>
-					<!--boton "agregar"-->
-					<button type="button" class="boton">Agregar al carrito</button>
-				</div>
-				<div class="producto">
-					<!--img-->
-					<img src="assets/img/matementas.png" alt="yerba" class="yerbaBlend">
-					<!--nombre de producto-->
-					<p class="nombre">Yerba Tres Mentas</p>
-					<!--precio-->
-					<p>$810</p>
-					<!--boton "agregar"-->
-					<button type="button" class="boton">Agregar al carrito</button>
-				</div>
-			</div>
-			<!--té en hebras-->
-			<div class="secciones">
-				<h2>Té en hebras</h2>
-			</div>
-			<div class="contenedor">
-				<div class="producto">
-					<!--img-->
-					<img src="assets/img/tefrutosrojos.jpg" alt="té" class="te">
-					<!--nombre de producto-->
-					<p class="nombre">Té Frutos Rojos</p>
-					<!--precio-->
-					<p>$550</p>
-					<!--boton "agregar"-->
-					<button type="button" class="boton">Agregar al carrito</button>
-				</div>
-				<div class="producto">
-					<!--img-->
-					<img src="assets/img/temango.jpg" alt="té" class="te">
-					<!--nombre de producto-->
-					<p class="nombre">Té Mango</p>
-					<!--precio-->
-					<p>$550</p>
-					<!--boton "agregar"-->
-					<button type="button" class="boton">Agregar al carrito</button>
-				</div>
-				<div class="producto">
-					<!--img-->
-					<img src="assets/img/tecym.jpg" alt="té" class="te">
-					<!--nombre de producto-->
-					<p class="nombre">Té Maracuyá</p>
-					<!--precio-->
-					<p>$550</p>
-					<!--boton "agregar"-->
-					<button type="button" class="boton">Agregar al carrito</button>
-				</div>
-				<div class="producto">
-					<!--img-->
-					<img src="assets/img/temaracuya.jpg" alt="té" class="te">
-					<!--nombre de producto-->
-					<p class="nombre">Té Chocolate y Menta</p>
-					<!--precio-->
-					<p>$550</p>
-					<!--boton "agregar"-->
-					<button type="button" class="boton">Agregar al carrito</button>
-				</div>
+			<!--selector de productos-->
+			<select id="selecTipo">
+				<option value="todos">Todos</option>
+				<option value="yerba agroecológica">Yerba Agroecológica</option>
+				<option value="yerba blend">Yerba Blend</option>
+				<option value="té en hebras">Té En Hebras</option>
+			</select>
+				
+			<div id="contenedor__productos">
+				
 			</div>
 			<div class="formulario">
 				 <label for="text" class="label">Ingresar Nombre y Apellido:<br>
