@@ -1,0 +1,17 @@
+
+//uso de un array para contener dentro la lista de objetos (mis productos)
+
+let stockProductos = [
+    {id: 1, nombre: "Yerba Roapipo", tipo: "yerba agroecológica", precio: 500, img: 'assets/img/roapipo.jpg', cantidad:1},
+    {id: 2, nombre: "Yerba Kalena", tipo: "yerba agroecológica", precio: 500, img: 'assets/img/kalena.jpg', cantidad:1},
+    {id: 3, nombre: "Yerba Titrayju", tipo: "yerba agroecológica", precio: 500, img: 'assets/img/titrayju.jpg', cantidad:1},
+    {id: 4, nombre: "Yerba Apidelta", tipo: "yerba agroecológica", precio: 500, img: 'assets/img/apidelta.jpg', cantidad:1},
+    {id: 5, nombre: "Yerba Coffee", tipo: "yerba blend", precio: 810, img: 'assets/img/matecoffee.png', cantidad:1},
+    {id: 6, nombre: "Yerba Flower Power", tipo: "yerba blend", precio: 810, img: 'assets/img/mateflower.png', cantidad:1},
+    {id: 7, nombre: "Yerba Ginger Mate", tipo: "yerba blend", precio: 810, img: 'assets/img/mateginger.png', cantidad:1},
+    {id: 8, nombre: "Yerba Tres Mentas", tipo: "yerba blend", precio: 810, img: 'assets/img/matementas.png', cantidad:1},
+    {id: 9, nombre: "Té Frutos Rojos", tipo: "té en hebras", precio: 640, img: 'assets/img/tefrutosrojos.jpg', cantidad:1},
+    {id: 10, nombre: "Té Mango", tipo: "té en hebras", precio: 640, img: 'assets/img/temango.jpg', cantidad:1},
+    {id: 11, nombre: "Té Maracuyá", tipo: "té en hebras", precio: 640, img: 'assets/img/temaracuya.jpg', cantidad:1},
+    {id: 12, nombre: "Té Chocolate y Menta", tipo: "té en hebras", precio: 640, img: 'assets/img/tecym.jpg', cantidad:1},
+]
