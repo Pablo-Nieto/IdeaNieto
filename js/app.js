@@ -100,14 +100,14 @@ function agregarAlCarrito(id) {
 
 
 
-
+//función para actualizar el carrito
 function actualizarCarrito() {
     contadorCarrito.innerText = carritoDeCompras.reduce((acc,el)=> acc + el.cantidad, 0)
     precioTotal.innerText = carritoDeCompras.reduce((acc,el)=> acc + (el.precio * el.cantidad), 0)
 }
 
 
-
+//función para guardar la información en el LocalStorage
 function recuperar() {
     let recuperarLS = JSON.parse(localStorage.getItem('carrito'))
     if(recuperarLS){
@@ -119,11 +119,7 @@ function recuperar() {
 
 recuperar()
 
-// poner dentro de un evento del boton vaciar o finalizar compra como dijo Emi:
-/*
-carritoDeCompras= []
-localStorage.clear() */
-
+// boton para vaciar el carrito
 const btnVaciar = document.getElementById('botonVaciar')
 btnVaciar.addEventListener('click',()=>{
    vaciarCarrito()
