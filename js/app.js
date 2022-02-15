@@ -88,13 +88,18 @@ function agregarAlCarrito(id) {
     
         let btnEliminar = document.getElementById(`botonEliminar${productoAgregar.id}`)
         btnEliminar.addEventListener('click',()=>{
-            btnEliminar.parentElement.remove()                         
-            carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgregar.id)
-            actualizarCarrito()
-            localStorage.setItem('carrito', JSON.stringify(carritoDeCompras))
+            if (productoAgregar.cantidad == 1){
+                btnEliminar.parentElement.remove()                         
+                carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgregar.id)
+                actualizarCarrito()
+                localStorage.setItem('carrito', JSON.stringify(carritoDeCompras))
+            }else {
+                 productoAgregar.cantidad = productoAgregar.cantidad - 1
+                document.getElementById(`cantidad${productoAgregar.id}`).innerHTML = `<p id= cantidad${productoAgregar.id}>Cantidad:${productoAgregar.cantidad}</p>`
+                actualizarCarrito()
+            }     
         })
     }
-
     localStorage.setItem('carrito', JSON.stringify(carritoDeCompras))
 }  
 
@@ -123,7 +128,6 @@ recuperar()
 const btnVaciar = document.getElementById('botonVaciar')
 btnVaciar.addEventListener('click',()=>{
    vaciarCarrito()
-   actualizarCarrito();
 })
 
 
@@ -131,7 +135,7 @@ function vaciarCarrito() {
     carritoDeCompras = []
     contenedorCarrito.innerHTML = "";
     localStorage.clear();
-    actualizarCarrito()
+    actualizarCarrito();
 } 
 
 

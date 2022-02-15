@@ -24,6 +24,7 @@ header {
     background-color: #66F28D;
     position: sticky;
     top: 0;
+    margin-left: -34px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
