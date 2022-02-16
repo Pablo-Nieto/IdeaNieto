@@ -13,23 +13,16 @@ const precioTotal = document.getElementById('precioTotal');
 const selecTipo = document.getElementById('selecTipo');
 const buscador = document.getElementById('search')
 
-//Filtro
+//Filtro 
+
 selecTipo.addEventListener('change', ()=>{
-  if(selecTipo.value == "todos"){
-    mostrarProductos(stockProductos)
-  }
-  else{
-    mostrarProductos(stockProductos.filter(el=>el.tipo == selecTipo.value))
-  }
-})
+  selecTipo.value == "todos" ? mostrarProductos(stockProductos) : mostrarProductos(stockProductos.filter(el=>el.tipo == selecTipo.value))
+  })
+
 
 //buscador
 buscador.addEventListener('input', ()=>{
-    if (buscador.value == "") {
-        mostrarProductos(stockProductos)
-    }else{
-        mostrarProductos(stockProductos.filter(el => el.nombre.toLowerCase().includes(buscador.value.toLowerCase())))
-    }
+   buscador.value == "" ? mostrarProductos(stockProductos) : mostrarProductos(stockProductos.filter(el => el.nombre.toLowerCase().includes(buscador.value.toLowerCase())))
 })
 
 
@@ -39,17 +32,18 @@ mostrarProductos(stockProductos)
 function mostrarProductos(array) {
   contenedorProductos.innerHTML = "";
   for (const producto of array) {
+    const {img, nombre,  tipo, precio, id} = producto
     let div = document.createElement('div')
     div.className = 'producto'
     div.innerHTML = `
                     <div class="card">
-                         <img src=${producto.img} class="imagen">   
-                         <span class="card-title">${producto.nombre}</span>
+                         <img src=${img} class="imagen">   
+                         <span class="card-title">${nombre}</span>
                          </div>
                          <div class="card-content">
-                              <p>Tipo: ${producto.tipo}</p>
-                              <p> precio: $${producto.precio}</p> 
-                              <button id="botonAgregar${producto.id}" class="boton">Agregar al carrito</button> 
+                              <p>Tipo: ${tipo}</p>
+                              <p> precio: $${precio}</p> 
+                              <button id="botonAgregar${id}" class="boton">Agregar al carrito</button> 
                          </div>
                     </div>
     `
@@ -66,14 +60,14 @@ function mostrarProductos(array) {
 function agregarAlCarrito(id) {
     let repetido = carritoDeCompras.find(item => item.id == id)
     if(repetido){
-        console.log(repetido);
+        console.log(repetido?.nombre || "el producto no ha sido encontrado");
         repetido.cantidad = repetido.cantidad + 1
         document.getElementById(`cantidad${repetido.id}`).innerHTML = `<p id= cantidad${repetido.id}>Cantidad:${repetido.cantidad}</p>`
         actualizarCarrito()
     }else{
 
         let productoAgregar = stockProductos.find(elemento => elemento.id == id)
-        // console.log(productoAgregar)
+        console.log(productoAgregar?.nombre || "el producto no ha sido encontrado");
         carritoDeCompras.push(productoAgregar)
         actualizarCarrito()
         let div = document.createElement('div')
@@ -133,6 +127,7 @@ btnVaciar.addEventListener('click',()=>{
 
 function vaciarCarrito() {
     carritoDeCompras = []
+    stockProductos.map(el=> el.cantidad = 1)
     contenedorCarrito.innerHTML = "";
     localStorage.clear();
     actualizarCarrito();
