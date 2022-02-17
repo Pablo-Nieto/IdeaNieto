@@ -1,5 +1,5 @@
 
-/*2ºDa preentrega*/
+/*Desafío complementario*/
 
 //variables globales
 let carritoDeCompras = []
@@ -13,14 +13,14 @@ const precioTotal = document.getElementById('precioTotal');
 const selecTipo = document.getElementById('selecTipo');
 const buscador = document.getElementById('search')
 
-//Filtro 
+//Filtro con uso de operador ternario 
 
 selecTipo.addEventListener('change', ()=>{
   selecTipo.value == "todos" ? mostrarProductos(stockProductos) : mostrarProductos(stockProductos.filter(el=>el.tipo == selecTipo.value))
   })
 
 
-//buscador
+//buscador con uso de operador ternario
 buscador.addEventListener('input', ()=>{
    buscador.value == "" ? mostrarProductos(stockProductos) : mostrarProductos(stockProductos.filter(el => el.nombre.toLowerCase().includes(buscador.value.toLowerCase())))
 })
@@ -32,7 +32,7 @@ mostrarProductos(stockProductos)
 function mostrarProductos(array) {
   contenedorProductos.innerHTML = "";
   for (const producto of array) {
-    const {img, nombre,  tipo, precio, id} = producto
+    const {img, nombre,  tipo, precio, id} = producto //desestructuración
     let div = document.createElement('div')
     div.className = 'producto'
     div.innerHTML = `
@@ -60,15 +60,15 @@ function mostrarProductos(array) {
 function agregarAlCarrito(id) {
     let repetido = carritoDeCompras.find(item => item.id == id)
     if(repetido){
-        console.log(repetido?.nombre || "el producto no ha sido encontrado");
-        repetido.cantidad = repetido.cantidad + 1
+        console.log(repetido?.nombre || "el producto no ha sido encontrado"); //ACCESO CONDICIONAL A UN OBJETO
+        repetido.cantidad += 1    
         document.getElementById(`cantidad${repetido.id}`).innerHTML = `<p id= cantidad${repetido.id}>Cantidad:${repetido.cantidad}</p>`
         actualizarCarrito()
     }else{
 
         let productoAgregar = stockProductos.find(elemento => elemento.id == id)
-        console.log(productoAgregar?.nombre || "el producto no ha sido encontrado");
-        carritoDeCompras.push(productoAgregar)
+        console.log(productoAgregar?.nombre || "el producto no ha sido encontrado"); //ACCESO CONDICIONAL A UN OBJETO
+        carritoDeCompras = [...carritoDeCompras, productoAgregar]  //uso de spread
         actualizarCarrito()
         let div = document.createElement('div')
         div.className = 'productoEnCarrito'
@@ -88,7 +88,7 @@ function agregarAlCarrito(id) {
                 actualizarCarrito()
                 localStorage.setItem('carrito', JSON.stringify(carritoDeCompras))
             }else {
-                 productoAgregar.cantidad = productoAgregar.cantidad - 1
+                 productoAgregar.cantidad -= 1
                 document.getElementById(`cantidad${productoAgregar.id}`).innerHTML = `<p id= cantidad${productoAgregar.id}>Cantidad:${productoAgregar.cantidad}</p>`
                 actualizarCarrito()
             }     
@@ -108,19 +108,23 @@ function actualizarCarrito() {
 
 //función para guardar la información en el LocalStorage
 function recuperar() {
-    let recuperarLS = JSON.parse(localStorage.getItem('carrito'))
-    if(recuperarLS){
+    let recuperarLS = JSON.parse(localStorage.getItem('carrito')) || []  //operador lógico OR
+
         recuperarLS.forEach(element => {
             agregarAlCarrito(element.id)
-        });
-    }
+            actualizarCarrito()
+        });   
 }
 
 recuperar()
 
+
 // boton para vaciar el carrito
+
 const btnVaciar = document.getElementById('botonVaciar')
+
 btnVaciar.addEventListener('click',()=>{
+
    vaciarCarrito()
 })
 
