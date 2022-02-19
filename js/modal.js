@@ -17,24 +17,3 @@ contenedorModal.addEventListener('click', ()=>{
     carritoCerrar.click()
 })
 
-
-
-
-const formularioAbrir = document.getElementById('botonComprar');
-const formularioCerrar = document.getElementById('botonCancelar');
-
-const compraModal = document.getElementsByClassName('modal-compra')[0]
-const modalForm = document.getElementsByClassName('modal-form')[0]
-
-formularioAbrir.addEventListener('click', ()=> {
-    compraModal.classList.toggle('modal-active')
-})
-formularioCerrar.addEventListener('click', ()=> {
-    compraModal.classList.toggle('modal-active')
-})
-modalForm.addEventListener('click',(e)=>{
-    e.stopPropagation()
-})
-modalForm.addEventListener('click', ()=>{
-    formularioCerrar.click()
-})
