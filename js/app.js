@@ -53,8 +53,15 @@ function mostrarProductos(array) {
 
     btnAgregar.addEventListener('click', ()=>{
         agregarAlCarrito(producto.id)
-    })
-  }
+            Toastify({
+                text: "🛒 Producto agregado",
+                className: "info",
+                style: {
+                background: "#29D552",
+              }
+            }).showToast();
+        })
+    }
 }
 
 function agregarAlCarrito(id) {
@@ -87,10 +94,24 @@ function agregarAlCarrito(id) {
                 carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgregar.id)
                 actualizarCarrito()
                 localStorage.setItem('carrito', JSON.stringify(carritoDeCompras))
+                Toastify({
+                        text: "✖ Producto eliminado",
+                        className: "info",
+                        style: {
+                        background: "#FF0000",
+                      }
+                    }).showToast();
             }else {
                  productoAgregar.cantidad -= 1
                 document.getElementById(`cantidad${productoAgregar.id}`).innerHTML = `<p id= cantidad${productoAgregar.id}>Cantidad:${productoAgregar.cantidad}</p>`
                 actualizarCarrito()
+                Toastify({
+                  text: "✖ Producto eliminado",
+                  className: "info",
+                  style: {
+                    background: "#FF0000",
+                  }
+                }).showToast();
             }     
         })
     }
@@ -100,7 +121,17 @@ function agregarAlCarrito(id) {
 
 
 //función para actualizar el carrito
+document.getElementById('botonVaciar').style.display = 'none';
+document.getElementById('botonComprar').style.display = 'none';
+
 function actualizarCarrito() {
+    if(carritoDeCompras.length > 0) {
+        document.getElementById('botonVaciar').style.display = 'inline-block'
+        document.getElementById('botonComprar').style.display = 'inline-block'
+    }else{
+        document.getElementById('botonVaciar').style.display = 'none'
+        document.getElementById('botonComprar').style.display = 'none'
+    }
     contadorCarrito.innerText = carritoDeCompras.reduce((acc,el)=> acc + el.cantidad, 0)
     precioTotal.innerText = carritoDeCompras.reduce((acc,el)=> acc + (el.precio * el.cantidad), 0)
 }
@@ -126,6 +157,14 @@ const btnVaciar = document.getElementById('botonVaciar')
 btnVaciar.addEventListener('click',()=>{
 
    vaciarCarrito()
+
+   Toastify({
+      text: "Carrito vacío",
+      className: "info",
+      style: {
+        background: "#FF0000",
+      }
+    }).showToast();
 })
 
 

@@ -277,12 +277,25 @@ footer {
 }
 
 #botonVaciar {
-    margin-left: 447px;
+    margin-left: 13px;
     font-size: 18px;
     padding: 4px;
     border-radius: 0.5rem;
     cursor: pointer;
     background-color: #FF0000;
+    color: #ffffff;
+    border: none;
+    outline: none;
+
+}
+
+#botonComprar {
+    margin-left: 345px;
+    font-size: 18px;
+    padding: 4px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: #29D552;
     color: #ffffff;
     border: none;
     outline: none;
