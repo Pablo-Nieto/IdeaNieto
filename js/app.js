@@ -1,7 +1,8 @@
 
-/*Desafío complementario*/
+/*Desafío*/
 
 //variables globales
+
 let carritoDeCompras = []
 
 const contenedorProductos = document.getElementById('contenedor__productos');
@@ -64,6 +65,7 @@ function mostrarProductos(array) {
     }
 }
 
+
 function agregarAlCarrito(id) {
     let repetido = carritoDeCompras.find(item => item.id == id)
     if(repetido){
@@ -77,7 +79,17 @@ function agregarAlCarrito(id) {
         console.log(productoAgregar?.nombre || "el producto no ha sido encontrado"); //ACCESO CONDICIONAL A UN OBJETO
         carritoDeCompras = [...carritoDeCompras, productoAgregar]  //uso de spread
         actualizarCarrito()
-        let div = document.createElement('div')
+        mostrarCarrito(productoAgregar)
+        
+    }
+    localStorage.setItem('carrito', JSON.stringify(carritoDeCompras))
+}  
+
+
+
+
+function mostrarCarrito(productoAgregar){
+    let div = document.createElement('div')
         div.className = 'productoEnCarrito'
         div.innerHTML =`
                         <p>${productoAgregar.nombre}</p>
@@ -105,6 +117,7 @@ function agregarAlCarrito(id) {
                  productoAgregar.cantidad -= 1
                 document.getElementById(`cantidad${productoAgregar.id}`).innerHTML = `<p id= cantidad${productoAgregar.id}>Cantidad:${productoAgregar.cantidad}</p>`
                 actualizarCarrito()
+                localStorage.setItem('carrito', JSON.stringify(carritoDeCompras))
                 Toastify({
                   text: "✖ Producto eliminado",
                   className: "info",
@@ -114,11 +127,7 @@ function agregarAlCarrito(id) {
                 }).showToast();
             }     
         })
-    }
-    localStorage.setItem('carrito', JSON.stringify(carritoDeCompras))
-}  
-
-
+}
 
 //función para actualizar el carrito
 document.getElementById('botonVaciar').style.display = 'none';
@@ -142,7 +151,8 @@ function recuperar() {
     let recuperarLS = JSON.parse(localStorage.getItem('carrito')) || []  //operador lógico OR
 
         recuperarLS.forEach(element => {
-            agregarAlCarrito(element.id)
+            mostrarCarrito(element)
+            carritoDeCompras.push(element)
             actualizarCarrito()
         });   
 }
@@ -175,7 +185,6 @@ function vaciarCarrito() {
     localStorage.clear();
     actualizarCarrito();
 } 
-
 
 
 
