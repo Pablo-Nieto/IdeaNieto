@@ -44,9 +44,7 @@ fetch('stock.json')
         data.forEach(el => stockProductos.push(el))})
     .catch(error => console.log(error));
             
-
-
-
+    
 //Lógica de E-commerce
 //mostrarProductos(stockProductos)
 
