@@ -4,7 +4,7 @@
 //variables globales
 
 let carritoDeCompras = []
-
+let stockProductos = []
 const contenedorProductos = document.getElementById('contenedor__productos');
 const contenedorCarrito = document.getElementById('carrito-contenedor');
 
@@ -26,9 +26,29 @@ buscador.addEventListener('input', ()=>{
    buscador.value == "" ? mostrarProductos(stockProductos) : mostrarProductos(stockProductos.filter(el => el.nombre.toLowerCase().includes(buscador.value.toLowerCase())))
 })
 
+const setData = async () => {
+    try{
+        const result = await fetch("stock.json");
+        const data = await result.json();
+        console.log(data);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+setData();
+
+fetch('stock.json')
+    .then(Response => Response.json())
+    .then(data => {mostrarProductos(data)
+        data.forEach(el => stockProductos.push(el))})
+    .catch(error => console.log(error));
+            
+
+
 
 //Lógica de E-commerce
-mostrarProductos(stockProductos)
+//mostrarProductos(stockProductos)
 
 function mostrarProductos(array) {
   contenedorProductos.innerHTML = "";
