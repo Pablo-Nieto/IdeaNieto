@@ -19,7 +19,7 @@
 				<a href="index.html"><img src="assets/img/logo.png" class="logo"></a>
 			</div>
 			<!--buscador-->
-			<input id="search" type="text" class="input" placeholder="Buscar producto">
+			<input id="search" type="text" class="buscador" placeholder="Buscar producto">
 			<!--carrito-->
         	<button id="boton-carrito"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
 		</header>
@@ -45,6 +45,7 @@
 			</div>
 			<div id="contenedor__productos">	
 			</div>
+			<!--modal carrito-->
 			<div class="modal-contenedor">
 			    <div class="modal-carrito">
 			        <h3>Carrito</h3>
@@ -52,9 +53,132 @@
 			        <div id="carrito-contenedor">
 			        </div>
 			        <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
-			        <button id="botonComprar">Comprar</button>
+			        <button class="botonComprar" id="botonComprar">Comprar</button>
 			        <button id="botonVaciar">Vaciar</button>
 			    </div>
+			</div>
+			<!--modal de pago-->
+			<div class="modal-container">
+				<div class="modal modal-close">
+					<form class="formulario" id="formulario">
+						<!--boton cerrar-->
+						<button class="close" id="formCerrar"><i class="fas fa-times-circle"></i></button>
+						<!--nombre-->
+						<div class="formulario__grupo" id="grupo__nombre">
+							<label for="nombre" class="formulario__label">Nombre:</label>
+							<div class="formulario__grupo-input">
+								<input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="José">
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">
+								El nombre solo puede contener letras y espacios.
+							</p>
+						</div>
+
+						<!--apellido-->
+						<div class="formulario__grupo" id="grupo__apellido">
+							<label for="apellido" class="formulario__label">Apellido:</label>
+							<div class="formulario__grupo-input">
+								<input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="García">
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">
+								El apellido solo puede contener letras y espacios.
+							</p>
+						</div>
+
+						<!--correo electrónico-->
+						<div class="formulario__grupo" id="grupo__correo">
+							<label for="correo" class="formulario__label">Correo Electrónico:</label>
+							<div class="formulario__grupo-input">
+								<input type="email" class="formulario__input" name="correo" id="correo" placeholder="José@correo.com">
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">
+								El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.
+							</p>
+						</div>
+
+						<!--domicilio-->
+						<div class="formulario__grupo" id="grupo__domicilio">
+							<label for="domicilio" class="formulario__label">Domicilio:</label>
+							<div class="formulario__grupo-input">
+								<input type="text" class="formulario__input" name="domicilio" id="domicilio" placeholder="Av. Siempreviva 742">
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">
+								El domicilio solo puede contener letras, numeros y puntos.
+							</p>
+						</div>
+
+						<!--número de tarjeta-->
+						<div class="formulario__grupo" id="grupo__numeroTarjeta">
+							<label for="numeroTarjeta" class="formulario__label">Número de tarjeta:</label>
+							<div class="formulario__grupo-input">
+								<input type="text" class="formulario__input" name="numeroTarjeta" id="numeroTarjeta" placeholder="0000 0000 0000 0000">
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">
+								El número de tarjeta solo puede contener numeros y espacios.
+							</p>
+						</div>
+
+						<!--titular de la tarjeta-->
+						<div class="formulario__grupo" id="grupo__nombreTarjeta">
+							<label for="nombreTarjeta" class="formulario__label">Titular de la tarjeta:</label>
+							<div class="formulario__grupo-input">
+								<input type="text" class="formulario__input" name="nombreTarjeta" id="nombreTarjeta" placeholder="Juan E Carpinelli">
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">
+								El nombre de tarjeta solo puede contener letras y espacios.
+							</p>
+						</div>
+
+						<!--vencimiento de la tarjeta-->
+						<div class="formulario__grupo" id="grupo__expiracion">
+							<label for="expiracion" class="formulario__label">Fecha de vencimiento:</label>
+							<div class="formulario__grupo-input">
+								<input type="text" class="formulario__input" name="expiracion" id="expiracion" placeholder="MM/YYYY">
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">
+								El número de tarjeta solo puede contener numeros y signos.
+							</p>
+						</div>
+
+						<!--código de seguridad-->
+						<div class="formulario__grupo" id="grupo__codigoSeguridad">
+							<label for="codigoSeguridad" class="formulario__label">Código de seguridad:</label>
+							<div class="formulario__grupo-input">
+								<input type="text" class="formulario__input" name="codigoSeguridad" id="codigoSeguridad" placeholder="123">
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">
+								El número de tarjeta solo puede contener numeros.
+							</p>
+						</div>
+
+						<!--Terminos y Condiciones-->
+					<div class="formulario__grupo" id="grupo__terminos">
+						<label class="formulario__label">
+							<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+							Acepto los Terminos y Condiciones
+						</label>
+					</div>
+
+					<!--mensaje error-->
+					<div class="formulario__mensaje" id="formulario__mensaje">
+						<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente.</p>
+					</div>
+
+					<!--finalizar-->
+					<div class="formulario__grupo formulario__grupo-btn-enviar">
+						<button type="submit" class="formulario__btn" id="botonPagar">Pagar</button>
+						<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Compra procesada exitosamente!</p>
+					</div>
+					</form>
+				</div>
 			</div>
 		</main>
 		<!--fin contenido-->
@@ -79,7 +203,8 @@
 		</footer>
 		<!--fin footer-->
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="js/modal.js"></script>
+	<script src="js/formulario.js"></script>
+    <script src="js/modales.js"></script>
 	<script src="js/app.js"></script>
 </body>
 </html>

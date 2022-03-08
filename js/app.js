@@ -1,10 +1,10 @@
 
-/*Desafío*/
 
 //variables globales
 
 let carritoDeCompras = []
 let stockProductos = []
+
 const contenedorProductos = document.getElementById('contenedor__productos');
 const contenedorCarrito = document.getElementById('carrito-contenedor');
 
@@ -30,7 +30,8 @@ const setData = async () => {
     try{
         const result = await fetch("stock.json");
         const data = await result.json();
-        console.log(data);
+        mostrarProductos(data);
+        data.forEach(el => stockProductos.push(el))
     } catch (error) {
         console.log(error);
     }
@@ -38,16 +39,7 @@ const setData = async () => {
 
 setData();
 
-fetch('stock.json')
-    .then(Response => Response.json())
-    .then(data => {mostrarProductos(data)
-        data.forEach(el => stockProductos.push(el))})
-    .catch(error => console.log(error));
-            
-    
-//Lógica de E-commerce
-//mostrarProductos(stockProductos)
-
+//funcion para mostrar los productos
 function mostrarProductos(array) {
   contenedorProductos.innerHTML = "";
   for (const producto of array) {
@@ -83,7 +75,7 @@ function mostrarProductos(array) {
     }
 }
 
-
+//funcion para agregar productos al carrito
 function agregarAlCarrito(id) {
     let repetido = carritoDeCompras.find(item => item.id == id)
     if(repetido){
@@ -103,9 +95,7 @@ function agregarAlCarrito(id) {
     localStorage.setItem('carrito', JSON.stringify(carritoDeCompras))
 }  
 
-
-
-
+//funcion para mostrar los productos en el carrito y poder eliminarlos
 function mostrarCarrito(productoAgregar){
     let div = document.createElement('div')
         div.className = 'productoEnCarrito'
